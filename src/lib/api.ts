@@ -79,7 +79,7 @@ export async function getProducts(
       thumbnail: {
         image_url:
           edge.node.thumbnail?.url || "/placeholder.svg?height=40&width=40",
-        background_color: "bg-yellow-400", // Default background color
+        background_color: "bg-orange-100",
       },
       platforms: edge.node.topics?.edges?.map((e: any) => e.node.name) || [],
       screenshot_url:
@@ -174,7 +174,7 @@ export async function getProductById(id: string): Promise<Product> {
       website: post.website,
       thumbnail: {
         image_url: post.thumbnail?.url || "/placeholder.svg?height=40&width=40",
-        background_color: "bg-yellow-400", // Default background color
+        background_color: "transparent", // Default background color
       },
       platforms: post.topics?.edges?.map((e: any) => e.node.name) || [],
       screenshot_url:
