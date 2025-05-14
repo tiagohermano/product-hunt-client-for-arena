@@ -9,14 +9,13 @@ export default function ProductCard({ product }: { product: Product }) {
       <div className="bg-white rounded-lg p-4 shadow-sm flex items-center h-full">
         <div className="mr-4 flex-shrink-0">
           <div
-            className={`w-14 h-14 rounded-lg flex items-center justify-center ${product.thumbnail.background_color || "bg-yellow-400"}`}
+            className={`w-14 h-14 rounded-lg flex items-center justify-center relative bg-transparent`}
           >
             <Image
               src={product.thumbnail.image_url || "/placeholder.svg"}
               alt={product.name}
-              width={40}
-              height={40}
-              className="w-10 h-10"
+              fill
+              className="w-10 h-10 rounded-lg"
             />
           </div>
         </div>
