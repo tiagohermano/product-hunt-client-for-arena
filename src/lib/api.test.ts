@@ -2,11 +2,12 @@ import { getProducts, getProductById } from "@/lib/api";
 import { jest } from "@jest/globals";
 
 // Mock fetch
-global.fetch = jest.fn();
+global.fetch = jest.fn() as never;
 
 describe("API Functions", () => {
   beforeEach(() => {
     jest.resetAllMocks();
+    jest.spyOn(console, "error").mockImplementation(() => { });
   });
 
   describe("getProducts", () => {
@@ -58,7 +59,7 @@ describe("API Functions", () => {
       (global.fetch as jest.Mock).mockResolvedValueOnce({
         ok: true,
         json: async () => mockResponse,
-      });
+      } as never);
 
       const result = await getProducts("popular");
 
@@ -73,7 +74,7 @@ describe("API Functions", () => {
       (global.fetch as jest.Mock).mockResolvedValueOnce({
         ok: false,
         status: 500,
-      });
+      } as never);
 
       const result = await getProducts("newest");
 
@@ -89,7 +90,7 @@ describe("API Functions", () => {
         json: async () => ({
           errors: [{ message: "GraphQL Error" }],
         }),
-      });
+      } as never);
 
       const result = await getProducts("popular");
 
@@ -137,7 +138,7 @@ describe("API Functions", () => {
       (global.fetch as jest.Mock).mockResolvedValueOnce({
         ok: true,
         json: async () => mockResponse,
-      });
+      } as never);
 
       const result = await getProductById("1");
 
@@ -155,7 +156,7 @@ describe("API Functions", () => {
             post: null,
           },
         }),
-      });
+      } as never);
 
       await expect(getProductById("999")).rejects.toThrow(
         "Failed to fetch product details",

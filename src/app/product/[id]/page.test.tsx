@@ -17,6 +17,7 @@ jest.mock("next/navigation", () => ({
 describe("ProductPage", () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    jest.spyOn(console, "error").mockImplementation(() => { });
   });
 
   it("renders product details correctly", async () => {
