@@ -8,7 +8,6 @@ export interface Product {
   website: string;
   thumbnail: {
     image_url: string;
-    background_color?: string;
   };
   platforms: string[];
   screenshot_url?: string;
