@@ -8,6 +8,7 @@ First, run the development server:
 
 ```bash
 cp .env.example .env # and paste in the PRODUCT_HUNT_TOKEN environment variable into the .env file
+pnpm install
 pnpm dev
 ```
 
