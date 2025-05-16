@@ -25,7 +25,6 @@ export default function InfiniteProductList({
   const observerTarget = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Reset state when tab changes
     setProducts(initialProducts);
     setNextCursor(initialNextCursor);
     setIsLoading(false);
