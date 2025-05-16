@@ -82,7 +82,10 @@ export default function InfiniteProductList({
 
   return (
     <>
-      <div className="space-y-4 md:space-y-0 md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-3">
+      <div
+        data-testid="list"
+        className="space-y-4 md:space-y-0 md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-3"
+      >
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
