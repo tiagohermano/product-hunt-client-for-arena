@@ -81,10 +81,15 @@ export async function getProducts(
           edge.node.thumbnail?.url || "/placeholder.svg?height=40&width=40",
         background_color: "bg-orange-100",
       },
-      platforms: edge.node.topics?.edges?.map((e: any) => e.node.name) || [],
+      platforms:
+        edge.node.topics?.edges?.map(
+          (e: { node: { name: string } }) => e.node.name,
+        ) || [],
       screenshot_url:
-        edge.node.media?.find((m: any) => m.type === "image")?.url ||
-        "/placeholder.svg?height=400&width=600",
+        edge.node.media?.find(
+          (m: { type: string; url: string; videoUrl: string }) =>
+            m.type === "image",
+        )?.url || "",
       ranking: edge.node.featuredAt
         ? {
           position: Math.floor(Math.random() * 10) + 1, // This is a placeholder since the API doesn't provide ranking position
@@ -173,12 +178,14 @@ export async function getProductById(id: string): Promise<Product> {
       created_at: post.createdAt,
       website: post.website,
       thumbnail: {
-        image_url: post.thumbnail?.url || "/placeholder.svg?height=40&width=40",
-        background_color: "transparent", // Default background color
+        image_url: post.thumbnail?.url || "",
       },
-      platforms: post.topics?.edges?.map((e: any) => e.node.name) || [],
+      platforms:
+        post.topics?.edges?.map(
+          (e: { node: { name: string } }) => e.node.name,
+        ) || [],
       screenshot_url:
-        post.media?.find((m: any) => m.type === "image")?.url ||
+        post.media?.find((m: { type: string }) => m.type === "image")?.url ||
         "/placeholder.svg?height=400&width=600",
       ranking: post.featuredAt
         ? {
