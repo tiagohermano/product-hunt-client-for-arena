@@ -29,7 +29,7 @@ export default async function ProductPage({
                 {product.screenshot_url && (
                   <div className="bg-white rounded-lg p-4 shadow-sm">
                     <Image
-                      src={product.screenshot_url || "/placeholder.svg"}
+                      src={product.screenshot_url}
                       alt={product.name}
                       width={800}
                       height={600}
@@ -44,7 +44,7 @@ export default async function ProductPage({
                   <div className="flex items-start mb-6">
                     <div className="rounded-lg mr-4">
                       <Image
-                        src={product.thumbnail.image_url || "/placeholder.svg"}
+                        src={product.thumbnail.image_url}
                         alt={product.name}
                         width={80}
                         height={80}
