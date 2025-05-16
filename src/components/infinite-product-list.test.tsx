@@ -99,6 +99,8 @@ describe("InfiniteProductList", () => {
       );
       mockIntersectionObserverInstance.triggerIntersection(true);
     });
+
+    expect(fetchMoreProducts).toHaveBeenCalledWith("popular", "next-cursor");
   });
 
   it("resets products when type changes", () => {
