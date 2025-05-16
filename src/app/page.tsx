@@ -62,7 +62,6 @@ function ProductListSkeleton() {
           </div>
           <div className="ml-4 flex-shrink-0 flex flex-col items-center">
             <Skeleton className="h-12 w-12 rounded-lg" />
-            <Skeleton className="h-3 w-8 mt-1" />
           </div>
         </div>
       ))}
