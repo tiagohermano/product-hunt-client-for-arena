@@ -27,6 +27,7 @@ pnpm test
 - Next.js
 - Typescript
 - TailwindCSS
+- Shadcn/ui
 
 ### Testing
 
